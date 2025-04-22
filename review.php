@@ -82,7 +82,7 @@ if (!empty($hostel_filter) && $min_rating > 0) {
           <img src="dormconnect logo.png" class="h-14 w-18" />
         </div>
         <div class="flex space-x-4 items-center">
-          <a href="home.html" class="text-gray-600 hover:text-gray-800">Home</a>
+          <a href="index.html" class="text-gray-600 hover:text-gray-800">Home</a>
           <a href="about.html" class="text-gray-600 hover:text-gray-800">About</a>
           <a href="review.php" class="text-gray-600 hover:text-gray-800 font-semibold">Reviews</a>
           <a href="contact.html" class="text-gray-600 hover:text-gray-800">Contact</a>
