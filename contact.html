@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - DormConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <img src="dormconnect logo.png" class="h-14 w-18">
+                </div>
+                <div class="flex space-x-4 items-center">
+                    <a href="home.html" class="text-gray-600 hover:text-gray-800">Home</a>
+                    <a href="about.html" class="text-gray-600 hover:text-gray-800">About</a>
+                    <a href="review.php" class="text-gray-600 hover:text-gray-800">Reviews</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-gray-800">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="py-10">
+        <div class="max-w-3xl mx-auto bg-white shadow-lg rounded-2xl p-6">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Contact Us</h2>
+            <p class="text-center text-gray-600 mb-6">
+                Have questions or feedback? We'd love to hear from you! <br>
+                Email us at: <span class="text-yellow-600 font-semibold">dormconnect.rtrp@gmail.com</span>
+            </p>
+
+            <form action="contact.php" method="post" class="space-y-4">
+                <!-- Name Input -->
+                <div>
+                    <label for="name" class="block text-gray-700">Your Name:</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                </div>
+
+                <!-- Email Input -->
+                <div>
+                    <label for="email" class="block text-gray-700">Your Email:</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                </div>
+
+                <!-- Rating -->
+                <div>
+                    <label class="block text-gray-700">Rate Us:</label>
+                    <div id="starRating" class="flex space-x-1 text-2xl text-gray-400 cursor-pointer">
+                        <span class="star" data-value="1">&#9733;</span>
+                        <span class="star" data-value="2">&#9733;</span>
+                        <span class="star" data-value="3">&#9733;</span>
+                        <span class="star" data-value="4">&#9733;</span>
+                        <span class="star" data-value="5">&#9733;</span>
+                    </div>
+                    <input type="hidden" id="rating" name="rating" required>
+                </div>
+
+                <!-- Review Input -->
+                <div>
+                    <label for="review" class="block text-gray-700">Leave Us a Review:</label>
+                    <textarea id="review" name="review" rows="4" required
+                        class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="text-center">
+                    <button type="submit"
+                        class="bg-yellow-600 text-white rounded-lg px-6 py-2 hover:bg-yellow-700 transition">Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p>&copy; 2025 DormConnect. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Star Rating Script -->
+    <script>
+        const stars = document.querySelectorAll(".star");
+        const ratingInput = document.getElementById("rating");
+
+        stars.forEach((star) => {
+            star.addEventListener("click", function () {
+                const rating = this.getAttribute("data-value");
+                ratingInput.value = rating;
+                updateStarColors(rating);
+            });
+
+            star.addEventListener("mouseover", function () {
+                updateStarColors(this.getAttribute("data-value"));
+            });
+
+            star.addEventListener("mouseout", function () {
+                updateStarColors(ratingInput.value);
+            });
+        });
+
+        function updateStarColors(rating) {
+            stars.forEach((star) => {
+                const val = star.getAttribute("data-value");
+                star.classList.toggle("text-yellow-400", val <= rating);
+                star.classList.toggle("text-gray-400", val > rating);
+            });
+        }
+    </script>
+</body>
+
+</html>
